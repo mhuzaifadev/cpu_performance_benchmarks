@@ -34,10 +34,10 @@ class CPUBenchmarkApp:
 
     def create_gui(self):
         # Create the GUI elements
-        self.run_button = tk.Button(self.root, text="Run Benchmark", command=self.run_benchmarks)
-        self.run_button.pack(pady=10)
+        self.run_button = tk.Button(self.root, text="Run Benchmark", command=self.run_benchmarks, width=15, height=2, bg="#4CAF50", fg="white")
+        self.run_button.pack(pady=20)
 
-        self.progress_label = tk.Label(self.root, text="Progress: 0%")
+        self.progress_label = tk.Label(self.root, text="Progress: 0%", font=("Helvetica", 12))
         self.progress_label.pack(pady=10)
 
     def run_benchmarks(self):
@@ -107,6 +107,21 @@ class CPUBenchmarkApp:
 
 # Create the main application window
 root = tk.Tk()
+
+# Set the window dimensions and position
+window_width = 300
+window_height = 200
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width - window_width) // 2
+y = (screen_height - window_height) // 2
+root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+
+# Set the window icon
+root.iconbitmap("icon.ico")  # Replace "icon.ico" with the path to your icon file
+
+# Set the window background color
+root.configure(bg="#f2f2f2")
 
 # Create the CPU Benchmark application
 app = CPUBenchmarkApp(root)
